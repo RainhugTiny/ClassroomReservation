@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="45.0dp"
+        android:background="#ffcd2626"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="100dp"
+            android:text="教室和会议室信息"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/select_type"
+        android:layout_below="@id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="45.0dp"
+        android:background="#ffcd2626"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/classroom_info"
+            android:layout_width="250dp"
+            android:layout_height="fill_parent"
+            android:text="教室信息"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+        <TextView
+            android:id="@+id/meetingroom_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/classroom_info"
+            android:gravity="center_vertical"
+            android:text="会议室信息"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rooms"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        android:layout_below="@id/select_type">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp">
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/select_info"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffcd2626"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/room_info"
+            android:layout_width="250dp"
+            android:layout_height="fill_parent"
+            android:text="主界面"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+        <TextView
+            android:id="@+id/personal_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/room_info"
+            android:gravity="center_vertical"
+            android:text="我的信息"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
