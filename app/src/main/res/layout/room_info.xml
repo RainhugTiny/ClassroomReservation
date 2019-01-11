@@ -22,7 +22,7 @@
             android:layout_toRightOf="@id/select_data"
             android:background="#A71717"/>
         <TextView
-            android:id="@+id/data"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_toRightOf="@id/seperator"
@@ -35,7 +35,7 @@
             android:id="@+id/info_name"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/data"
+            android:layout_toRightOf="@id/date"
             android:paddingLeft="30dp"
             android:gravity="center_vertical"
             android:text="教室和会议室信息"
