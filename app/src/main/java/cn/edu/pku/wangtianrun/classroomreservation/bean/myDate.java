@@ -2,6 +2,7 @@ package cn.edu.pku.wangtianrun.classroomreservation.bean;
 
 public class myDate {
     private String date;
+    private String date_cn;
     private int room_2101;
     private int room_2102;
     private int room_2103;
@@ -23,6 +24,9 @@ public class myDate {
     //获取房间信息
     public String getDate(){
         return date;
+    }
+    public String getDate_cn(){
+        return date_cn;
     }
     public int getRoom_2101(){
         return room_2101;
@@ -81,6 +85,9 @@ public class myDate {
     //设置房间信息
     public void setDate(String str){
         date=str;
+    }
+    public void setDate_cn(String str){
+        date_cn=str;
     }
     public void setRoom_2101(int i){
         room_2101=i;

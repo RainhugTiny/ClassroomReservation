@@ -212,6 +212,9 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 String date=jsonObject.getString("date");
                 Log.d("selected_date",date);
                 dateObj.setDate(date);
+                String date_cn=jsonObject.getString("日期");
+                Log.d("selected_date",date_cn);
+                dateObj.setDate_cn(date_cn);
                 int room_2101=jsonObject.getInt("2101");
                 Log.d("selected_date",""+room_2101);
                 dateObj.setRoom_2101(room_2101);
@@ -274,7 +277,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     }
     void updateRoomsInf(myDate date){
 
-        weekday.setText(date.getDate());
+        weekday.setText(date.getDate_cn());
         int[] stateList=date.stateList();
         String[] roomNames={"2101","2102","2103","2201","2202","2203","2301","2302","2303",
                 "3101","3102","3103","3201","3202","3203","3301","3302","3303",};
