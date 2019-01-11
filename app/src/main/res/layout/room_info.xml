@@ -2,84 +2,116 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--title-->
     <RelativeLayout
         android:id="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="45.0dp"
+        android:layout_height="40.0dp"
         android:background="#ffcd2626"
         android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/select_data"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/edit" />
+        <ImageView
+            android:id="@+id/seperator"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2.0dp"
+            android:layout_toRightOf="@id/select_data"
+            android:background="#A71717"/>
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp"
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/seperator"
+            android:text="星期一"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+        <TextView
+            android:id="@+id/info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/data"
+            android:paddingLeft="30dp"
+            android:gravity="center_vertical"
             android:text="教室和会议室信息"
             android:textColor="#ffffffff"
             android:textSize="22sp"/>
+        <ImageView
+            android:id="@+id/update"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:src="@drawable/search"/>
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/select_type"
-        android:layout_below="@id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="45.0dp"
-        android:background="#ffcd2626"
-        android:gravity="center_vertical">
-        <TextView
-            android:id="@+id/classroom_info"
-            android:layout_width="250dp"
-            android:layout_height="fill_parent"
-            android:text="教室信息"
-            android:layout_marginLeft="15dp"
-            android:gravity="center_vertical"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
-        <TextView
-            android:id="@+id/meetingroom_info"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/classroom_info"
-            android:gravity="center_vertical"
-            android:text="会议室信息"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
-
-    </RelativeLayout>
-
     <LinearLayout
-        android:id="@+id/rooms"
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:orientation="vertical"
-        android:layout_below="@id/select_type">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title"
+        android:layout_above="@id/select_info"
+        android:background="@drawable/bg"
+        android:orientation="vertical">
+        <!--viewpager-->
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp">
+            android:id="@+id/rooms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vpager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+            </android.support.v4.view.ViewPager>
+            <LinearLayout
+                android:id="@+id/main_linear"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+            </LinearLayout>
+
         </RelativeLayout>
-
     </LinearLayout>
-
+    <!--bottom_menu-->
     <RelativeLayout
         android:id="@+id/select_info"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="#ffcd2626"
         android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/main_page"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/reserve" />
         <TextView
             android:id="@+id/room_info"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="fill_parent"
-            android:text="主界面"
-            android:layout_marginLeft="15dp"
+            android:text="预定"
+            android:layout_toRightOf="@id/main_page"
             android:gravity="center_vertical"
             android:textColor="#ffffffff"
             android:textSize="22sp"/>
+        <ImageView
+            android:id="@+id/mine"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/room_info"
+            android:src="@drawable/mine" />
         <TextView
             android:id="@+id/personal_info"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/room_info"
+            android:layout_toRightOf="@id/mine"
             android:gravity="center_vertical"
             android:text="我的信息"
             android:textColor="#ffffffff"
@@ -87,5 +119,6 @@
 
 
     </RelativeLayout>
+
 
 </RelativeLayout>
