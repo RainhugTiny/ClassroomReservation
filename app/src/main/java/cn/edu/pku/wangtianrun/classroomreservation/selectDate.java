@@ -20,6 +20,8 @@ public class selectDate extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.select_date);
+        Intent intent=getIntent();
+        selectedDate=intent.getStringExtra("initDate");
         initListView();
         backBtn=(ImageView)findViewById(R.id.back);
         backBtn.setOnClickListener(this);

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,7 +46,10 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     private ImageView updateBtn;
     private TextView room_3301,room_3302,room_3303,room_3201,room_3202,room_3203,room_3101,room_3102,room_3103,
     room_2301,room_2302,room_2303,room_2201,room_2202,room_2203,room_2101,room_2102,room_2103,weekday;
+    private ImageView room_3301_img,room_3302_img,room_3303_img,room_3201_img,room_3202_img,room_3203_img,room_3101_img,room_3102_img,room_3103_img,
+            room_2301_img,room_2302_img,room_2303_img,room_2201_img,room_2202_img,room_2203_img,room_2101_img,room_2102_img,room_2103_img;
     private ImageView select_date;
+    private myDate dateObj;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -101,24 +105,61 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
         //初始化房间信息
         room_2101=(TextView)aList.get(1).findViewById(R.id.room_2101);
+        room_2101_img=(ImageView)aList.get(1).findViewById(R.id.room_2101_img);
         room_2102=(TextView)aList.get(1).findViewById(R.id.room_2102);
+        room_2102_img=(ImageView)aList.get(1).findViewById(R.id.room_2102_img);
         room_2103=(TextView)aList.get(1).findViewById(R.id.room_2103);
+        room_2103_img=(ImageView)aList.get(1).findViewById(R.id.room_2103_img);
         room_2201=(TextView)aList.get(1).findViewById(R.id.room_2201);
+        room_2201_img=(ImageView)aList.get(1).findViewById(R.id.room_2201_img);
         room_2202=(TextView)aList.get(1).findViewById(R.id.room_2202);
+        room_2202_img=(ImageView)aList.get(1).findViewById(R.id.room_2202_img);
         room_2203=(TextView)aList.get(1).findViewById(R.id.room_2203);
+        room_2203_img=(ImageView)aList.get(1).findViewById(R.id.room_2203_img);
         room_2301=(TextView)aList.get(1).findViewById(R.id.room_2301);
+        room_2301_img=(ImageView)aList.get(1).findViewById(R.id.room_2301_img);
         room_2302=(TextView)aList.get(1).findViewById(R.id.room_2302);
+        room_2302_img=(ImageView)aList.get(1).findViewById(R.id.room_2302_img);
         room_2303=(TextView)aList.get(1).findViewById(R.id.room_2303);
+        room_2303_img=(ImageView)aList.get(1).findViewById(R.id.room_2303_img);
         room_3101=(TextView)aList.get(0).findViewById(R.id.room_3101);
+        room_3101_img=(ImageView)aList.get(0).findViewById(R.id.room_3101_img);
         room_3102=(TextView)aList.get(0).findViewById(R.id.room_3102);
+        room_3102_img=(ImageView)aList.get(0).findViewById(R.id.room_3102_img);
         room_3103=(TextView)aList.get(0).findViewById(R.id.room_3103);
+        room_3103_img=(ImageView)aList.get(0).findViewById(R.id.room_3103_img);
         room_3201=(TextView)aList.get(0).findViewById(R.id.room_3201);
+        room_3201_img=(ImageView)aList.get(0).findViewById(R.id.room_3201_img);
         room_3202=(TextView)aList.get(0).findViewById(R.id.room_3202);
+        room_3202_img=(ImageView)aList.get(0).findViewById(R.id.room_3202_img);
         room_3203=(TextView)aList.get(0).findViewById(R.id.room_3203);
+        room_3203_img=(ImageView)aList.get(0).findViewById(R.id.room_3203_img);
         room_3301=(TextView)aList.get(0).findViewById(R.id.room_3301);
+        room_3301_img=(ImageView)aList.get(0).findViewById(R.id.room_3301_img);
         room_3302=(TextView)aList.get(0).findViewById(R.id.room_3302);
+        room_3302_img=(ImageView)aList.get(0).findViewById(R.id.room_3302_img);
         room_3303=(TextView)aList.get(0).findViewById(R.id.room_3303);
+        room_3303_img=(ImageView)aList.get(0).findViewById(R.id.room_3303_img);
         weekday=(TextView)findViewById(R.id.date);
+        //为房间图标设置单击事件，响应选择教室或会议室的单击事件。
+        room_2101_img.setOnClickListener(this);
+        room_2102_img.setOnClickListener(this);
+        room_2103_img.setOnClickListener(this);
+        room_2201_img.setOnClickListener(this);
+        room_2202_img.setOnClickListener(this);
+        room_2203_img.setOnClickListener(this);
+        room_2301_img.setOnClickListener(this);
+        room_2302_img.setOnClickListener(this);
+        room_2303_img.setOnClickListener(this);
+        room_3101_img.setOnClickListener(this);
+        room_3102_img.setOnClickListener(this);
+        room_3103_img.setOnClickListener(this);
+        room_3201_img.setOnClickListener(this);
+        room_3202_img.setOnClickListener(this);
+        room_3203_img.setOnClickListener(this);
+        room_3301_img.setOnClickListener(this);
+        room_3302_img.setOnClickListener(this);
+        room_3303_img.setOnClickListener(this);
     }
     /*
      * 构造初始化小圆点方法
@@ -171,7 +212,6 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             @Override
             public void run() {
                 HttpURLConnection con=null;
-                myDate dateObj=null;
                 try {
                     URL url=new URL(address);
                     con=(HttpURLConnection)url.openConnection();
@@ -318,7 +358,6 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 view.setText(roomNames[i]+"  已预定");
             }
         }
-        Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
     }
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         if(requestCode==1&&resultCode==RESULT_OK){
@@ -333,6 +372,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 Log.d("myWeather", "网络OK");
                 //获取网络数据
                 queryRoomInf(date);
+                Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
             } else {
                 Log.d("myWeather", "网络挂了");
                 Toast.makeText(MainActivity.this, "网络挂了!", Toast.LENGTH_LONG).show();
@@ -342,22 +382,119 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
     @Override
     public void onClick(View v) {
+        Log.d("selected_date","click");
+        SharedPreferences sharedPreferences=getSharedPreferences("config",MODE_PRIVATE);
+        String date=sharedPreferences.getString("date","monday");
+        Log.d("selected_date",date);
+        //更新事件
         if(v.getId()==R.id.update){
-            SharedPreferences sharedPreferences=getSharedPreferences("config",MODE_PRIVATE);
-            String date=sharedPreferences.getString("date","monday");
             Log.d("selected_date",date);
             if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE) {
                 Log.d("myWeather", "网络OK");
                 //获取网络数据
                 queryRoomInf(date);
+                Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
             } else {
                 Log.d("myWeather", "网络挂了");
                 Toast.makeText(MainActivity.this, "网络挂了!", Toast.LENGTH_LONG).show();
             }
         }
-        if(v.getId()==R.id.select_date){
+        //选择日期事件
+        else if(v.getId()==R.id.select_date){
             Intent i=new Intent(this,selectDate.class);
+            i.putExtra("initDate",date);
             startActivityForResult(i,1);
+        }
+        //选择教室事件
+        else if(v.getId()==R.id.room_2101_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2101());
+        }
+        else if(v.getId()==R.id.room_2102_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2102());
+        }
+        else if(v.getId()==R.id.room_2103_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2103());
+        }
+        else if(v.getId()==R.id.room_2201_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2201());
+        }
+        else if(v.getId()==R.id.room_2202_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2202());
+        }
+        else if(v.getId()==R.id.room_2203_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2203());
+        }
+        else if(v.getId()==R.id.room_2301_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2301());
+        }
+        else if(v.getId()==R.id.room_2302_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2302());
+        }
+        else if(v.getId()==R.id.room_2303_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_2303());
+        }
+
+        else if(v.getId()==R.id.room_3101_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3101());
+        }
+        else if(v.getId()==R.id.room_3102_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3102());
+        }
+        else if(v.getId()==R.id.room_3103_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3103());
+        }
+        else if(v.getId()==R.id.room_3201_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3201());
+        }
+        else if(v.getId()==R.id.room_3202_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3202());
+        }
+        else if(v.getId()==R.id.room_3203_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3203());
+        }
+        else if(v.getId()==R.id.room_3301_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3301());
+        }
+        else if(v.getId()==R.id.room_3302_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3302());
+        }
+        else if(v.getId()==R.id.room_3303_img){
+            queryRoomInf(date);
+            responseChooseRoom(dateObj.getRoom_3303());
+        }
+    }
+    private void responseChooseRoom(int type){
+        if(type==0){
+            Toast toast=Toast.makeText(getApplicationContext(),"房间已有课，请另行选择",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+        }
+        else if(type==1){
+            Toast toast=Toast.makeText(getApplicationContext(),"预定成功",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+        }
+        else if(type==2){
+            Toast toast=Toast.makeText(getApplicationContext(),"房间已被预定",Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
         }
     }
 
