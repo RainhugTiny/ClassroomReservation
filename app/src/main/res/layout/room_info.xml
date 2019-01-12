@@ -38,7 +38,7 @@
             android:layout_toRightOf="@id/date"
             android:paddingLeft="30dp"
             android:gravity="center_vertical"
-            android:text="教室和会议室信息"
+            android:text="会议室和教室信息"
             android:textColor="#ffffffff"
             android:textSize="22sp"/>
         <ImageView
@@ -50,6 +50,7 @@
             android:src="@drawable/search"/>
 
     </RelativeLayout>
+    <!--viewPager-->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -59,9 +60,11 @@
         android:orientation="vertical">
         <!--viewpager-->
         <RelativeLayout
+            android:layout_marginLeft="8dp"
             android:id="@+id/rooms"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
             <android.support.v4.view.ViewPager
                 android:id="@+id/vpager"
                 android:layout_width="wrap_content"
