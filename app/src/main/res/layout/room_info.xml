@@ -10,7 +10,7 @@
         android:background="#ffcd2626"
         android:gravity="center_vertical">
         <ImageView
-            android:id="@+id/select_data"
+            android:id="@+id/select_date"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/edit" />
@@ -19,7 +19,7 @@
             android:layout_width="1dp"
             android:layout_height="40dp"
             android:layout_marginTop="2.0dp"
-            android:layout_toRightOf="@id/select_data"
+            android:layout_toRightOf="@id/select_date"
             android:background="#A71717"/>
         <TextView
             android:id="@+id/date"
@@ -50,6 +50,7 @@
             android:src="@drawable/search"/>
 
     </RelativeLayout>
+
     <!--viewPager-->
     <LinearLayout
         android:layout_width="fill_parent"

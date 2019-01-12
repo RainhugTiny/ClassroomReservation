@@ -1,6 +1,7 @@
 package cn.edu.pku.wangtianrun.classroomreservation;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,8 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +45,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     private ImageView updateBtn;
     private TextView room_3301,room_3302,room_3303,room_3201,room_3202,room_3203,room_3101,room_3102,room_3103,
     room_2301,room_2302,room_2303,room_2201,room_2202,room_2203,room_2101,room_2102,room_2103,weekday;
+    private ImageView select_date;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -69,7 +74,8 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         vpager.addOnPageChangeListener(this);
         //设置当前页面的小圆点可见
         mLinearLayout.getChildAt(0).setEnabled(true);
-
+        select_date=(ImageView)findViewById(R.id.select_date);
+        select_date.setOnClickListener(this);
         /*进行网络状态检测。
          *通过Toast在界面通知信息。
          */
@@ -314,6 +320,25 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         }
         Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
     }
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        if(requestCode==1&&resultCode==RESULT_OK){
+            String date=data.getStringExtra("date");
+            Log.d("selected_date",date);
+            //将选择的日期通过sharedpreference保存
+            SharedPreferences.Editor editor=getSharedPreferences("config",MODE_PRIVATE).edit();
+            editor.putString("date",date);
+            editor.apply();
+
+            if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE) {
+                Log.d("myWeather", "网络OK");
+                //获取网络数据
+                queryRoomInf(date);
+            } else {
+                Log.d("myWeather", "网络挂了");
+                Toast.makeText(MainActivity.this, "网络挂了!", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -330,5 +355,10 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 Toast.makeText(MainActivity.this, "网络挂了!", Toast.LENGTH_LONG).show();
             }
         }
+        if(v.getId()==R.id.select_date){
+            Intent i=new Intent(this,selectDate.class);
+            startActivityForResult(i,1);
+        }
     }
+
 }

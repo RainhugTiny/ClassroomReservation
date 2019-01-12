@@ -23,10 +23,10 @@
             <TextView
                 android:id="@+id/room_3301"
                 android:layout_below="@id/room_3301_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3301   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3301"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -43,10 +43,10 @@
             <TextView
                 android:id="@+id/room_3302"
                 android:layout_below="@id/room_3302_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3302   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3302"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -63,10 +63,10 @@
             <TextView
                 android:id="@+id/room_3303"
                 android:layout_below="@id/room_3303_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3303   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3303"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -91,10 +91,10 @@
             <TextView
                 android:id="@+id/room_3201"
                 android:layout_below="@id/room_3201_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3201   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3201"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -111,10 +111,10 @@
             <TextView
                 android:id="@+id/room_3202"
                 android:layout_below="@id/room_3202_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3202   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3202"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -131,10 +131,10 @@
             <TextView
                 android:id="@+id/room_3203"
                 android:layout_below="@id/room_3203_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3203   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3203"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -159,10 +159,10 @@
             <TextView
                 android:id="@+id/room_3101"
                 android:layout_below="@id/room_3101_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3101   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3101"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -179,10 +179,10 @@
             <TextView
                 android:id="@+id/room_3102"
                 android:layout_below="@id/room_3102_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3102   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3102"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>
@@ -199,10 +199,10 @@
             <TextView
                 android:id="@+id/room_3103"
                 android:layout_below="@id/room_3103_img"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3103   空闲"
-                android:layout_marginLeft="12dp"
+                android:text="3103"
+                android:layout_centerHorizontal="true"
                 android:textSize="15dp"
                 />
         </RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/select_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="40.0dp"
+        android:background="#ffcd2626"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back" />
+        <ImageView
+            android:id="@+id/select_seperator"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2.0dp"
+            android:layout_toRightOf="@id/back"
+            android:background="#A71717"/>
+        <TextView
+            android:id="@+id/word"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/select_seperator"
+            android:text="选择日期"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textColor="#ff000000"
+            android:textSize="22sp"/>
+    </LinearLayout>
+    <ListView
+        android:layout_below="@id/select_title"
+        android:id="@+id/myListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </ListView>
+
+</RelativeLayout>
