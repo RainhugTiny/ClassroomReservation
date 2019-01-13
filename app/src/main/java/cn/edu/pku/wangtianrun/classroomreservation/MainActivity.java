@@ -261,58 +261,58 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 String date_cn=jsonObject.getString("日期");
                 Log.d("selected_date",date_cn);
                 dateObj.setDate_cn(date_cn);
-                int room_2101=jsonObject.getInt("2101");
+                int room_2101=jsonObject.getInt("room_2101");
                 Log.d("selected_date",""+room_2101);
                 dateObj.setRoom_2101(room_2101);
-                int room_2102=jsonObject.getInt("2102");
+                int room_2102=jsonObject.getInt("room_2102");
                 Log.d("selected_date",""+room_2102);
                 dateObj.setRoom_2102(room_2102);
-                int room_2103=jsonObject.getInt("2103");
+                int room_2103=jsonObject.getInt("room_2103");
                 Log.d("selected_date",""+room_2103);
                 dateObj.setRoom_2103(room_2103);
-                int room_2201=jsonObject.getInt("2201");
+                int room_2201=jsonObject.getInt("room_2201");
                 Log.d("selected_date",""+room_2201);
                 dateObj.setRoom_2201(room_2201);
-                int room_2202=jsonObject.getInt("2202");
+                int room_2202=jsonObject.getInt("room_2202");
                 Log.d("selected_date",""+room_2202);
                 dateObj.setRoom_2202(room_2202);
-                int room_2203=jsonObject.getInt("2203");
+                int room_2203=jsonObject.getInt("room_2203");
                 Log.d("selected_date",""+room_2203);
                 dateObj.setRoom_2203(room_2203);
-                int room_2301=jsonObject.getInt("2301");
+                int room_2301=jsonObject.getInt("room_2301");
                 Log.d("selected_date",""+room_2301);
                 dateObj.setRoom_2301(room_2301);
-                int room_2302=jsonObject.getInt("2302");
+                int room_2302=jsonObject.getInt("room_2302");
                 Log.d("selected_date",""+room_2302);
                 dateObj.setRoom_2302(room_2302);
-                int room_2303=jsonObject.getInt("2303");
+                int room_2303=jsonObject.getInt("room_2303");
                 Log.d("selected_date",""+room_2303);
                 dateObj.setRoom_2303(room_2303);
-                int room_3101=jsonObject.getInt("3101");
+                int room_3101=jsonObject.getInt("room_3101");
                 Log.d("selected_date",""+room_3101);
                 dateObj.setRoom_3101(room_3101);
-                int room_3102=jsonObject.getInt("3102");
+                int room_3102=jsonObject.getInt("room_3102");
                 Log.d("selected_date",""+room_3102);
                 dateObj.setRoom_3102(room_3102);
-                int room_3103=jsonObject.getInt("3103");
+                int room_3103=jsonObject.getInt("room_3103");
                 Log.d("selected_date",""+room_3103);
                 dateObj.setRoom_3103(room_3103);
-                int room_3201=jsonObject.getInt("3201");
+                int room_3201=jsonObject.getInt("room_3201");
                 Log.d("selected_date",""+room_3201);
                 dateObj.setRoom_3201(room_3201);
-                int room_3202=jsonObject.getInt("3202");
+                int room_3202=jsonObject.getInt("room_3202");
                 Log.d("selected_date",""+room_3202);
                 dateObj.setRoom_3202(room_3202);
-                int room_3203=jsonObject.getInt("3203");
+                int room_3203=jsonObject.getInt("room_3203");
                 Log.d("selected_date",""+room_3203);
                 dateObj.setRoom_3203(room_3203);
-                int room_3301=jsonObject.getInt("3301");
+                int room_3301=jsonObject.getInt("room_3301");
                 Log.d("selected_date",""+room_3301);
                 dateObj.setRoom_3301(room_3301);
-                int room_3302=jsonObject.getInt("3302");
+                int room_3302=jsonObject.getInt("room_3302");
                 Log.d("selected_date",""+room_3302);
                 dateObj.setRoom_3302(room_3302);
-                int room_3303=jsonObject.getInt("3303");
+                int room_3303=jsonObject.getInt("room_3303");
                 Log.d("selected_date",""+room_3303);
                 dateObj.setRoom_3303(room_3303);
             }
@@ -408,94 +408,131 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         //选择教室事件
         else if(v.getId()==R.id.room_2101_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2101());
+            responseChooseRoom(dateObj.getRoom_2101(),2101);
         }
         else if(v.getId()==R.id.room_2102_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2102());
+            responseChooseRoom(dateObj.getRoom_2102(),2102);
         }
         else if(v.getId()==R.id.room_2103_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2103());
+            responseChooseRoom(dateObj.getRoom_2103(),2103);
         }
         else if(v.getId()==R.id.room_2201_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2201());
+            responseChooseRoom(dateObj.getRoom_2201(),2201);
         }
         else if(v.getId()==R.id.room_2202_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2202());
+            responseChooseRoom(dateObj.getRoom_2202(),2202);
         }
         else if(v.getId()==R.id.room_2203_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2203());
+            responseChooseRoom(dateObj.getRoom_2203(),2203);
         }
         else if(v.getId()==R.id.room_2301_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2301());
+            responseChooseRoom(dateObj.getRoom_2301(),2301);
         }
         else if(v.getId()==R.id.room_2302_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2302());
+            responseChooseRoom(dateObj.getRoom_2302(),2302);
         }
         else if(v.getId()==R.id.room_2303_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_2303());
+            responseChooseRoom(dateObj.getRoom_2303(),2303);
         }
 
         else if(v.getId()==R.id.room_3101_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3101());
+            responseChooseRoom(dateObj.getRoom_3101(),3101);
         }
         else if(v.getId()==R.id.room_3102_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3102());
+            responseChooseRoom(dateObj.getRoom_3102(),3102);
         }
         else if(v.getId()==R.id.room_3103_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3103());
+            responseChooseRoom(dateObj.getRoom_3103(),3103);
         }
         else if(v.getId()==R.id.room_3201_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3201());
+            responseChooseRoom(dateObj.getRoom_3201(),3201);
         }
         else if(v.getId()==R.id.room_3202_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3202());
+            responseChooseRoom(dateObj.getRoom_3202(),3202);
         }
         else if(v.getId()==R.id.room_3203_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3203());
+            responseChooseRoom(dateObj.getRoom_3203(),3203);
         }
         else if(v.getId()==R.id.room_3301_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3301());
+            responseChooseRoom(dateObj.getRoom_3301(),3301);
         }
         else if(v.getId()==R.id.room_3302_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3302());
+            responseChooseRoom(dateObj.getRoom_3302(),3302);
         }
         else if(v.getId()==R.id.room_3303_img){
             queryRoomInf(date);
-            responseChooseRoom(dateObj.getRoom_3303());
+            responseChooseRoom(dateObj.getRoom_3303(),3303);
         }
     }
-    private void responseChooseRoom(int type){
+    private void responseChooseRoom(int type,int room){
         if(type==0){
             Toast toast=Toast.makeText(getApplicationContext(),"房间已有课，请另行选择",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }
         else if(type==1){
+            setRoomInf(dateObj.getDate(),room);
             Toast toast=Toast.makeText(getApplicationContext(),"预定成功",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+            queryRoomInf(dateObj.getDate());
         }
         else if(type==2){
             Toast toast=Toast.makeText(getApplicationContext(),"房间已被预定",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }
+    }
+    private void setRoomInf(String date,int room){
+        final String address="http://140.143.28.211/rooms/rooms/write/date/"+date+"/room/room_"+room+"/username/wang";
+        Log.d("write_date",address);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection con=null;
+                try {
+                    URL url=new URL(address);
+                    con=(HttpURLConnection)url.openConnection();
+                    con.setConnectTimeout(8000);
+                    con.setReadTimeout(8000);
+                    InputStream in=con.getInputStream();
+                    BufferedReader reader=new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response=new StringBuilder();
+                    String str;
+                    while ((str=reader.readLine())!=null){
+                        response.append(str);
+                        Log.d("write_date",str);
+                    }
+                    String responseStr=response.toString();
+                    Log.d("write_date",responseStr);
+//                    if(responseStr!=null){
+//                        view.setText("");
+//                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }finally {
+                    if(con!=null){
+                        con.disconnect();
+                    }
+                }
+            }
+        }).start();
     }
 
 }
