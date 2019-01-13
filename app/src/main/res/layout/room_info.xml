@@ -7,7 +7,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="40.0dp"
-        android:background="#ffcd2626"
+        android:background="#ffffe0"
         android:gravity="center_vertical">
         <ImageView
             android:id="@+id/select_date"
@@ -29,8 +29,7 @@
             android:text="星期一"
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
         <TextView
             android:id="@+id/info_name"
             android:layout_width="wrap_content"
@@ -39,8 +38,7 @@
             android:paddingLeft="30dp"
             android:gravity="center_vertical"
             android:text="会议室和教室信息"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
         <ImageView
             android:id="@+id/update"
             android:layout_width="40dp"
@@ -57,7 +55,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/title"
         android:layout_above="@id/select_info"
-        android:background="@drawable/bg"
+        android:background="@drawable/back_carrot"
         android:orientation="vertical">
         <!--viewpager-->
         <RelativeLayout
@@ -89,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:background="#ffcd2626"
+        android:background="#ffffe0"
         android:gravity="center_vertical">
         <ImageView
             android:id="@+id/main_page"
@@ -103,8 +101,7 @@
             android:text="预定"
             android:layout_toRightOf="@id/main_page"
             android:gravity="center_vertical"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
         <ImageView
             android:id="@+id/mine"
             android:layout_width="40dp"
@@ -118,8 +115,7 @@
             android:layout_toRightOf="@id/mine"
             android:gravity="center_vertical"
             android:text="我的信息"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
 
 
     </RelativeLayout>

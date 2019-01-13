@@ -27,9 +27,9 @@
             android:layout_toRightOf="@id/select_seperator"
             android:text="选择日期"
             android:gravity="center_vertical"
-            android:paddingLeft="5dp"
+            android:paddingLeft="15dp"
             android:textColor="#ff000000"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
     </LinearLayout>
     <ListView
         android:layout_below="@id/select_title"
