@@ -145,6 +145,7 @@ public class userInf extends Activity implements View.OnClickListener {
         }
         if(v.getId()==R.id.info_update){
             queryUserInfo("wang");
+
         }
     }
 
