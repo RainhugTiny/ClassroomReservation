@@ -38,6 +38,7 @@ import cn.edu.pku.wangtianrun.classroomreservation.viewPager.MypagerAdapter;
 
 public class MainActivity extends Activity implements ViewPager.OnPageChangeListener, View.OnClickListener {
     private static final int UPDATE_DATE=1;
+    private static final int CAULC_ROOM=2;
     private ViewPager vpager;
     private ArrayList<View> aList;
     private MypagerAdapter mAdapter;
@@ -51,12 +52,17 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     private ImageView select_date;
     private myDate dateObj;
     private ImageView userInf;
+    private int selectedRoomNub=0;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
             switch (msg.what){
                 case UPDATE_DATE:
                     updateRoomsInf((myDate) msg.obj);
+                    break;
+                case CAULC_ROOM:
+                    selectedRoomNub=(int)msg.obj;
+                    Log.d("userRoomNumber",""+selectedRoomNub);
                     break;
                 default:
                     break;
@@ -251,6 +257,58 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         }).start();
     }
     /*
+    * 获取用户获得房间数目的信息
+    * */
+    private void queryUserInfo(String username){
+        final String address="http://140.143.28.211/rooms/rooms/userinfo/username/"+username;
+        Log.d("userInfo",address);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection con=null;
+                try{
+                    URL url=new URL(address);
+                    con=(HttpURLConnection)url.openConnection();
+                    con.setReadTimeout(8000);
+                    con.setRequestMethod("GET");
+                    InputStream in=con.getInputStream();
+                    BufferedReader reader=new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response=new StringBuilder();
+                    String str;
+                    while ((str=reader.readLine())!=null){
+                        response.append(str);
+                        Log.d("userInfo",str);
+                    }
+
+                    String responseStr=response.toString();
+                    Log.d("userInfo",responseStr);
+                    int roomNum=parseJsonInfo(responseStr);
+                    Log.d("userInfo","roomList.length is "+roomNum);
+                    Message msg=new Message();
+                    msg.what=CAULC_ROOM;
+                    msg.obj=roomNum;
+                    mHandler.sendMessage(msg);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+    }
+    /*
+    * 解析用户预定房间数目
+    * */
+    private int parseJsonInfo(String jsonData){
+        int num=0;
+        try {
+            JSONArray jsonArray=new JSONArray(jsonData);
+            num=jsonArray.length();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return num;
+    }
+    /*
     * 解析Json数据
     * */
     private myDate parseJson(String jsonData){
@@ -326,6 +384,9 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         }
         return dateObj;
     }
+    /*
+    * 更新会议室和教室信息
+    * */
     void updateRoomsInf(myDate date){
 
         weekday.setText(date.getDate_cn());
@@ -490,25 +551,40 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             responseChooseRoom(dateObj.getRoom_3303(),3303);
         }
     }
+    /*
+    * 处理选择教室或会议室事件的方法
+    * */
     private void responseChooseRoom(int type,int room){
         if(type==0){
+            queryUserInfo("wang");
             Toast toast=Toast.makeText(getApplicationContext(),"房间已有课，请另行选择",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }
         else if(type==1){
-            setRoomInf(dateObj.getDate(),room);
-            Toast toast=Toast.makeText(getApplicationContext(),"预定成功",Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER,0,0);
-            toast.show();
-            queryRoomInf(dateObj.getDate());
+            queryUserInfo("wang");
+            if(selectedRoomNub>=3){
+                Toast toast=Toast.makeText(getApplicationContext(),"预定数目已达上限，预定失败",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+            }else {
+                setRoomInf(dateObj.getDate(),room);
+                Toast toast=Toast.makeText(getApplicationContext(),"预定成功",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                queryRoomInf(dateObj.getDate());
+            }
         }
         else if(type==2){
+            queryUserInfo("wang");
             Toast toast=Toast.makeText(getApplicationContext(),"房间已被预定",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }
     }
+    /*
+    * 选择教室或会议室后向服务器发送更新数据库的信息
+    * */
     private void setRoomInf(String date,int room){
         final String address="http://140.143.28.211/rooms/rooms/write/date/"+date+"/room/room_"+room+"/username/wang";
         Log.d("write_date",address);

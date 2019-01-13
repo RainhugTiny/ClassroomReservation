@@ -28,6 +28,9 @@ public class userInf extends Activity implements View.OnClickListener {
     private ImageView updateBtn;
     private ListView mListView;
     private static  final int UPDATE_LIST=1;
+    private ImageView cancel;
+    private String[] userRoomList;
+    private String cancelRoom;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -51,6 +54,9 @@ public class userInf extends Activity implements View.OnClickListener {
         //为获取用户预定房间信息设置单击事件
         updateBtn=(ImageView)findViewById(R.id.info_update);
         updateBtn.setOnClickListener(this);
+        //为取消预定设置单击事件
+        cancel=(ImageView)findViewById(R.id.personal_cancel);
+        cancel.setOnClickListener(this);
     }
     private void queryUserInfo(String username){
         final String address="http://140.143.28.211/rooms/rooms/userinfo/username/"+username;
@@ -129,14 +135,54 @@ public class userInf extends Activity implements View.OnClickListener {
         return roomList;
     }
     private void initListView(String[] mineRooms){
+        userRoomList=mineRooms;
         ArrayAdapter<String> adapter=new ArrayAdapter<>(userInf.this,android.R.layout.simple_list_item_1,mineRooms);
         mListView.setAdapter(adapter);
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(userInf.this,"你选择了："+position,Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int length=userRoomList[position].length();
+                cancelRoom=""+userRoomList[position].charAt(length-4)+userRoomList[position].charAt(length-3)+userRoomList[position].charAt(length-2)+
+                        userRoomList[position].charAt(length-1);
+                Toast.makeText(userInf.this,"你要取消预定教室"+cancelRoom+"吗？",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    /*
+    * 取消预定
+    * */
+    private void cancel(String room){
+        int intRoom=Integer.parseInt(room);
+        final String address="http://140.143.28.211/rooms/rooms/cancel/date/monday/room/room_"+intRoom;
+        Log.d("cancel_room",address);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection con=null;
+                try{
+                    URL url=new URL(address);
+                    con=(HttpURLConnection)url.openConnection();
+                    con.setRequestMethod("GET");
+                    con.setReadTimeout(8000);
+                    con.setConnectTimeout(8000);
+                    InputStream in=con.getInputStream();
+                    BufferedReader reader=new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response=new StringBuilder();
+                    String str;
+                    while ((str=reader.readLine())!=null){
+                        response.append(str);
+                    }
+                    String responseStr=response.toString();
+                    Log.d("cancel_room",responseStr);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    if(con!=null){
+                        con.disconnect();
+                    }
+                }
+            }
+        }).start();
     }
     @Override
     public void onClick(View v) {
@@ -146,6 +192,9 @@ public class userInf extends Activity implements View.OnClickListener {
         if(v.getId()==R.id.info_update){
             queryUserInfo("wang");
 
+        }
+        if(v.getId()==R.id.personal_cancel){
+            cancel(cancelRoom);
         }
     }
 

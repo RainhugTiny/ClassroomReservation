@@ -10,25 +10,35 @@
         android:orientation="horizontal"
         android:background="#ffffff">
         <ImageView
-            android:id="@+id/personal_back"
+            android:id="@+id/personal_cancel"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/back" />
+            android:src="@drawable/cancel" />
         <ImageView
             android:id="@+id/personal_seperator"
             android:layout_width="1dp"
             android:layout_height="40dp"
             android:layout_marginTop="2.0dp"
-            android:layout_toRightOf="@id/personal_back"
+            android:layout_toRightOf="@id/personal_cancel"
             android:background="#A71717"/>
         <TextView
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_toRightOf="@id/personal_seperator"
-            android:text="用户预约教室列表"
+            android:text="取消预定"
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
+            android:textColor="#ff000000"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/personal_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/cancel"
+            android:text="用户预约教室列表"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
             android:textColor="#ff000000"
             android:textSize="22sp"/>
         <ImageView
