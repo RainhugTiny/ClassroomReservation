@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     private myDate dateObj;
     private ImageView userInf;
     private int selectedRoomNub=0;
+    private ProgressBar progressBar;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -91,6 +93,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         //为我的信息设置单击事件
         userInf=(ImageView)findViewById(R.id.mine);
         userInf.setOnClickListener(this);
+        progressBar=(ProgressBar)findViewById(R.id.progressbar);
         /*进行网络状态检测。
          *通过Toast在界面通知信息。
          */
@@ -424,6 +427,8 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 view.setText(roomNames[i]+"  已预定");
             }
         }
+        progressBar.setVisibility(View.INVISIBLE);
+        updateBtn.setVisibility(View.VISIBLE);
     }
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         if(requestCode==1&&resultCode==RESULT_OK){
@@ -454,6 +459,8 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         Log.d("selected_date",date);
         //更新事件
         if(v.getId()==R.id.update){
+            progressBar.setVisibility(View.VISIBLE);
+            updateBtn.setVisibility(View.INVISIBLE);
             Log.d("selected_date",date);
             if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE) {
                 Log.d("myWeather", "网络OK");

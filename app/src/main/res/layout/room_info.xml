@@ -46,6 +46,14 @@
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
             android:src="@drawable/search"/>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/progressbar"
+            android:visibility="invisible"/>
 
     </RelativeLayout>
 

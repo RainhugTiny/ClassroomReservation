@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,6 +32,7 @@ public class userInf extends Activity implements View.OnClickListener {
     private ImageView cancel;
     private String[] userRoomList;
     private String cancelRoom;
+    private ProgressBar progressBar;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -57,6 +59,7 @@ public class userInf extends Activity implements View.OnClickListener {
         //为取消预定设置单击事件
         cancel=(ImageView)findViewById(R.id.personal_cancel);
         cancel.setOnClickListener(this);
+        progressBar=(ProgressBar)findViewById(R.id.info_progressbar);
     }
     private void queryUserInfo(String username){
         final String address="http://140.143.28.211/rooms/rooms/userinfo/username/"+username;
@@ -138,6 +141,8 @@ public class userInf extends Activity implements View.OnClickListener {
         userRoomList=mineRooms;
         ArrayAdapter<String> adapter=new ArrayAdapter<>(userInf.this,android.R.layout.simple_list_item_1,mineRooms);
         mListView.setAdapter(adapter);
+        progressBar.setVisibility(View.INVISIBLE);
+        updateBtn.setVisibility(View.VISIBLE);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -190,6 +195,8 @@ public class userInf extends Activity implements View.OnClickListener {
             finish();
         }
         if(v.getId()==R.id.info_update){
+            progressBar.setVisibility(View.VISIBLE);
+            updateBtn.setVisibility(View.INVISIBLE);
             queryUserInfo("wang");
 
         }
