@@ -96,7 +96,25 @@ public class userInf extends Activity implements View.OnClickListener {
             JSONArray jsonArray=new JSONArray(jsonData);
             for(int i=0;i<jsonArray.length();i++){
                 JSONObject jsonObject=jsonArray.getJSONObject(i);
-                mineRooms.add(jsonObject.getString("room"));
+                String room=jsonObject.getString("room");
+                String date=jsonObject.getString("date");
+                if(date.equals("monday")){
+                    date="星期一";
+                }else if(date.equals("tuesday")){
+                    date="星期二";
+                }else if(date.equals("wednesday")){
+                    date="星期三";
+                }else if(date.equals("thursday")){
+                    date="星期四";
+                }else if(date.equals("friday")){
+                    date="星期五";
+                }else if(date.equals("saturday")){
+                    date="星期六";
+                }else if(date.equals("sunday")){
+                    date="星期日";
+                }
+                String info=date+"    教室:"+room.charAt(5)+room.charAt(6)+room.charAt(7)+room.charAt(8);
+                mineRooms.add(info);
                 num++;
                 Log.d("userInfo",mineRooms.get(i));
             }
