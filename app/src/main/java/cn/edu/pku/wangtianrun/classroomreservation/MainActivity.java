@@ -50,6 +50,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             room_2301_img,room_2302_img,room_2303_img,room_2201_img,room_2202_img,room_2203_img,room_2101_img,room_2102_img,room_2103_img;
     private ImageView select_date;
     private myDate dateObj;
+    private ImageView userInf;
 
     private Handler mHandler=new Handler(){
         public void handleMessage(android.os.Message msg){
@@ -78,8 +79,12 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         vpager.addOnPageChangeListener(this);
         //设置当前页面的小圆点可见
         mLinearLayout.getChildAt(0).setEnabled(true);
+        //为选择日期设置单击事件
         select_date=(ImageView)findViewById(R.id.select_date);
         select_date.setOnClickListener(this);
+        //为我的信息设置单击事件
+        userInf=(ImageView)findViewById(R.id.mine);
+        userInf.setOnClickListener(this);
         /*进行网络状态检测。
          *通过Toast在界面通知信息。
          */
@@ -404,6 +409,11 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             Intent i=new Intent(this,selectDate.class);
             i.putExtra("initDate",date);
             startActivityForResult(i,1);
+        }
+        //查看我的信息事件
+        else if(v.getId()==R.id.mine){
+            Intent intent=new Intent(this,userInf.class);
+            startActivity(intent);
         }
         //选择教室事件
         else if(v.getId()==R.id.room_2101_img){

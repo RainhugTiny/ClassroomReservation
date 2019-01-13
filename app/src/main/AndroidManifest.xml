@@ -22,5 +22,8 @@
         <activity android:name=".selectDate">
 
         </activity>
+        <activity android:name=".userInf">
+
+        </activity>
     </application>
 </manifest>

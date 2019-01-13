@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--title-->
+    <RelativeLayout
+        android:id="@+id/personal_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+        <ImageView
+            android:id="@+id/personal_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back" />
+        <ImageView
+            android:id="@+id/personal_seperator"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2.0dp"
+            android:layout_toRightOf="@id/personal_back"
+            android:background="#A71717"/>
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/personal_seperator"
+            android:text="用户预约教室列表"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textColor="#ff000000"
+            android:textSize="22sp"/>
+        <ImageView
+            android:id="@+id/info_update"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/search"/>
+    </RelativeLayout>
+    <!--listView-->
+    <ListView
+        android:layout_below="@id/personal_title"
+        android:layout_above="@+id/personal_bottom"
+        android:id="@+id/personalListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </ListView>
+    <!--bottom_menu-->
+    <RelativeLayout
+        android:id="@+id/personal_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffcd2626"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/back_main_page"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/reserve" />
+        <TextView
+            android:id="@+id/back_room_info"
+            android:layout_width="200dp"
+            android:layout_height="fill_parent"
+            android:text="预定"
+            android:layout_toRightOf="@id/back_main_page"
+            android:gravity="center_vertical"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
+        <ImageView
+            android:id="@+id/mine_info"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/back_room_info"
+            android:src="@drawable/mine" />
+        <TextView
+            android:id="@+id/user_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/mine_info"
+            android:gravity="center_vertical"
+            android:text="我的信息"
+            android:textColor="#ffffffff"
+            android:textSize="22sp"/>
 
-</LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
