@@ -220,6 +220,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     * 获取网络数据
     * */
     private void queryRoomInf(final String date){
+        //访问获取会议室和教室信息的方法的URL链接，方式为GET。
         final String address="http://140.143.28.211/rooms/rooms/read/date/"+date;
         Log.d("selected_date",address);
         new Thread(new Runnable() {
@@ -229,19 +230,24 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                 try {
                     URL url=new URL(address);
                     con=(HttpURLConnection)url.openConnection();
+                    //设置连接超时时间
                     con.setConnectTimeout(8000);
+                    //设置读取超时时间
                     con.setReadTimeout(8000);
                     InputStream in=con.getInputStream();
                     BufferedReader reader=new BufferedReader(new InputStreamReader(in));
                     StringBuilder response=new StringBuilder();
                     String str;
+                    //读取网络流数据中的全部信息
                     while ((str=reader.readLine())!=null){
                         response.append(str);
                         Log.d("selected_date",str);
                     }
+                    //将读取到的信息转换为JSON字符串
                     String responseStr=response.toString();
                     Log.d("selected_date",responseStr);
                     dateObj=parseJson(responseStr);
+                    //通过handler向主线程发送消息更新主界面会议室和教室信息。
                     if(dateObj!=null){
                         Log.d("selected_date",dateObj.toString());
                         Message msg=new Message();
@@ -315,12 +321,13 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     * 解析Json数据
     * */
     private myDate parseJson(String jsonData){
+        //用myDate对象存储返回的会议室和教室信息
         myDate dateObj=new myDate();
         try {
             JSONArray jsonArray=new JSONArray(jsonData);
             for (int i=0;i<jsonArray.length();i++){
+                //读取七天的会议室和教室信息
                 JSONObject jsonObject=jsonArray.getJSONObject(i);
-
                 String date=jsonObject.getString("date");
                 Log.d("selected_date",date);
                 dateObj.setDate(date);
