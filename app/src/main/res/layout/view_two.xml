@@ -14,7 +14,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2301_img"
                 android:layout_width="match_parent"
@@ -27,14 +27,14 @@
                 android:layout_height="wrap_content"
                 android:text="2301"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2302_img"
                 android:layout_width="match_parent"
@@ -47,14 +47,14 @@
                 android:layout_height="wrap_content"
                 android:text="2302"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2303_img"
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="2303"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
 
@@ -82,7 +82,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2201_img"
                 android:layout_width="match_parent"
@@ -95,14 +95,14 @@
                 android:layout_height="wrap_content"
                 android:text="2201"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2202_img"
                 android:layout_width="match_parent"
@@ -115,14 +115,14 @@
                 android:layout_height="wrap_content"
                 android:text="2202"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2203_img"
                 android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:text="2203"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
 
@@ -150,7 +150,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2101_img"
                 android:layout_width="match_parent"
@@ -163,14 +163,14 @@
                 android:layout_height="wrap_content"
                 android:text="2101"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2102_img"
                 android:layout_width="match_parent"
@@ -183,14 +183,14 @@
                 android:layout_height="wrap_content"
                 android:text="2102"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="105dp">
             <ImageView
                 android:id="@+id/room_2103_img"
                 android:layout_width="match_parent"
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:text="2103"
                 android:layout_centerHorizontal="true"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </RelativeLayout>
 

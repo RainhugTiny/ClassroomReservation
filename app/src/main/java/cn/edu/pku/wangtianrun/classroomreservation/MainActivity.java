@@ -420,11 +420,11 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             //用数字代表教室的状态，0代表有课，1代表空闲，2代表已预约
             TextView view=arrayList.get(i);
             if(stateList[i]==0){
-                view.setText(roomNames[i]+"   有课");
+                view.setText(roomNames[i]+" 有课");
             }else if(stateList[i]==1){
-                view.setText(roomNames[i]+"   空闲");
+                view.setText(roomNames[i]+" 空闲");
             }else if(stateList[i]==2){
-                view.setText(roomNames[i]+"  已预定");
+                view.setText(roomNames[i]+" 已预定");
             }
         }
         progressBar.setVisibility(View.INVISIBLE);
